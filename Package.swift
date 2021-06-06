@@ -1,22 +1,33 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.3
 
 import PackageDescription
 
 
 let package = Package(
-    name: "Apodini",
+    name: "ApodiniAsyncHTTPClient",
+    platforms: [
+        .macOS(.v10_15)
+    ],
     products: [
-        .library(name: "Apodini", targets: ["Apodini"])
+        .library(name: "ApodiniAsyncHTTPClient", targets: ["ApodiniAsyncHTTPClient"])
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
+        .package(url: "https://github.com/Apodini/Apodini.git", .branch("develop")),
+        .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.3.0")
     ],
     targets: [
-        .target(name: "Apodini"),
-        .testTarget(name: "ApodiniTests",
-                    dependencies: [
-                        .target(name: "Apodini")
-                    ])
+        .target(
+            name: "ApodiniAsyncHTTPClient",
+            dependencies: [
+                .product(name: "Apodini", package: "Apodini"),
+                .product(name: "AsyncHTTPClient", package: "async-http-client")
+            ]
+        ),
+        .testTarget(
+            name: "ApodiniAsyncHTTPClientTests",
+            dependencies: [
+                .target(name: "ApodiniAsyncHTTPClient")
+            ]
+        )
     ]
 )

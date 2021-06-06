@@ -1,46 +1,58 @@
-## How to use this repository
-### Template
-When creating a new repository make sure to select this repository as a repository template. ![](https://github.com/Apodini/Template-Repository/raw/develop/Images/RepositoryTemplate.png)
+# ApodiniAsyncHTTPClient
 
-### Customize the repository
-Enter your repository specific configuration
-- Enter your project name instead of "PROJECT_NAME" in .jazzy.yml
-- Remove the "Images" folder
-- Replace the "Package.swift", "Sources" and "Tests" folder with your own Swift Package
-- Update the README with your information
-
-
-### GitHub Actions
-This repository contains several workflows which require you to provide a GitHub Secret. Secrets are encrypted environment variables that you create in a repository for use with GitHub Actions.
-
-#### 1. Create a personal access token
-- Go to your token settings in GitHub (click on `Settings` in the user drop-down menu, then `Developer` settings in the sidebar, then click on `Personal access tokens`)
-- Then click the `Generate token` button.
-- Make sure to copy the access token
-
-![](https://github.com/Apodini/Template-Repository/raw/develop/Images/AccessToken.png)
-
-#### 2. Create a secret
-Next, you’ll need to add a new secret to your repository.
-
-- Open the settings for your repository and click `Secrets` in the sidebar
-- Click `Add a new secret` and set the name to `ACCESS_TOKEN`
-- Paste the copied personal access token into  `Value`
-- Click `Add secret`
-
-![](https://github.com/Apodini/Template-Repository/raw/release/Images/Secret.png)
-
-#### 3. Test all available GitHub Actions
-
-### ⬆️ Remove everything up to here ⬆️
-
-# Project Name
+ApodiniAsyncHTTPClient extends [Apodini](https://github.com/Apodini/Apodini) with support for the [AsyncHTTPClient](https://github.com/swift-server/async-http-client) to make HTTP requests in `Handlers` using the Environment: `@Environment(\.httpClient) var httpClient: HTTPClient`.  
+For more information about the [AsyncHTTPClient check out the documentation fround in the AsyncHTTPClient repository at https://github.com/swift-server/async-http-client](https://github.com/swift-server/async-http-client).
 
 ## Requirements
 
-## Installation/Setup/Integration
+ApodiniAsyncHTTPClient extends [Apodini](https://github.com/Apodini/Apodini) and can be added as an additional dependency to your Swift Package manifest (`Package.swift`):
+```
+dependencies: [
+    .package(url: "https://github.com/Apodini/ApodiniAsyncHTTPClient.git", from: "1.0.0"),
+    // And more Swift Package dependencies ...
+],
+```
+You can use the dependency in your Apodini target as follows:
+```
+.target(
+    name: "MyApodiniWebService",
+    dependencies: [
+        .product(name: "Apodini", package: "Apodini"),
+        .product(name: "ApodiniAsyncHTTPClient", package: "ApodiniAsyncHTTPClient"),
+        // And more dependencies for the target ...
+    ]
+),
+```
 
 ## Usage
+
+
+You can use the [AsyncHTTPClient](https://github.com/swift-server/async-http-client) to make HTTP requests in `Handlers` using the Environment: `@Environment(\.httpClient) var httpClient: HTTPClient`:
+```
+import Apodini
+import ApodiniAsyncHTTPClient
+
+
+struct CreateContact: Handler {
+    @Environment(\.httpClient)
+    var httpClient: HTTPClient
+    
+    
+    func handle() throws -> EventLoopFuture<String> {
+        httpClient
+            .get(url: "https://github.com/Apodini/ApodiniAsyncHTTPClient")
+            .map { response in
+                guard response.status == .ok else {
+                    return "❌"
+                }
+                return "ApodiniAsyncHTTPClient 🚀"
+            }
+    }
+}
+
+```
+For more information about the [AsyncHTTPClient check out the documentation fround in the AsyncHTTPClient repository at https://github.com/swift-server/async-http-client](https://github.com/swift-server/async-http-client).
+
 
 ## Contributing
 Contributions to this projects are welcome. Please make sure to read the [contribution guidelines](https://github.com/Apodini/.github/blob/release/CONTRIBUTING.md) first.

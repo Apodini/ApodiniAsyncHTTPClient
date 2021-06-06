@@ -1,0 +1,30 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - develop
+      - release
+  pull_request:
+    branches:
+      - develop
+      - release
+  workflow_dispatch:
+
+jobs:
+  linux:
+    name: Linux ${{ matrix.linux }} ${{ matrix.configuration }} test build
+    container:
+      image: swift:5.3-${{ matrix.linux }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        linux: [bionic, xenial, focal, amazonlinux2, centos8]
+        configuration: [debug, release]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check Swift version
+      run: swift --version
+    - name: Build & Test
+      run: swift test --configuration ${{ matrix.configuration }} --enable-test-discovery -Xswiftc -enable-testing
