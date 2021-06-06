@@ -8,7 +8,7 @@ For more information about the [AsyncHTTPClient check out the documentation frou
 ApodiniAsyncHTTPClient extends [Apodini](https://github.com/Apodini/Apodini) and can be added as an additional dependency to your Swift Package manifest (`Package.swift`):
 ```swift
 dependencies: [
-    .package(url: "https://github.com/Apodini/ApodiniAsyncHTTPClient.git", from: "1.0.0"),
+    .package(url: "https://github.com/Apodini/ApodiniAsyncHTTPClient.git", from: "0.1.0"),
     // And more Swift Package dependencies ...
 ],
 ```
