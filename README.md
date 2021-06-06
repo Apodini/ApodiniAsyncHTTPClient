@@ -6,14 +6,14 @@ For more information about the [AsyncHTTPClient check out the documentation frou
 ## Requirements
 
 ApodiniAsyncHTTPClient extends [Apodini](https://github.com/Apodini/Apodini) and can be added as an additional dependency to your Swift Package manifest (`Package.swift`):
-```
+```swift
 dependencies: [
     .package(url: "https://github.com/Apodini/ApodiniAsyncHTTPClient.git", from: "1.0.0"),
     // And more Swift Package dependencies ...
 ],
 ```
 You can use the dependency in your Apodini target as follows:
-```
+```swift
 .target(
     name: "MyApodiniWebService",
     dependencies: [
@@ -28,7 +28,7 @@ You can use the dependency in your Apodini target as follows:
 
 
 You can use the [AsyncHTTPClient](https://github.com/swift-server/async-http-client) to make HTTP requests in `Handlers` using the Environment: `@Environment(\.httpClient) var httpClient: HTTPClient`:
-```
+```swift
 import Apodini
 import ApodiniAsyncHTTPClient
 
