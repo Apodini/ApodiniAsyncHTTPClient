@@ -4,7 +4,7 @@ import Logging
 
 
 /// Configures the `HTTPClient` that can be used in `Handler`s using `@Environment(\.httpClient)`
-public final class HTTPClientConfiguration: Configuration {
+public final class HTTPClientConfiguration: Configuration, LifecycleHandler {
     private let configuration: HTTPClient.Configuration
     private let backgroundActivityLogger: Logger?
     
@@ -31,5 +31,15 @@ public final class HTTPClientConfiguration: Configuration {
             configuration: configuration,
             backgroundActivityLogger: logger
         )
+        
+        app.lifecycle.use(self)
+    }
+    
+    public func shutdown(_ app: Application) {
+        do {
+            try app.httpClient.syncShutdown()
+        } catch {
+            app.logger.error("Could not shutdown the HTTPClient")
+        }
     }
 }
