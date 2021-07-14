@@ -1,5 +1,10 @@
 # ApodiniAsyncHTTPClient
 
+[![DOI](https://zenodo.org/badge/374457662.svg)](https://zenodo.org/badge/latestdoi/374457662)
+[![codecov](https://codecov.io/gh/Apodini/ApodiniAsyncHTTPClient/branch/develop/graph/badge.svg?token=3qlFhsfUnj)](https://codecov.io/gh/Apodini/ApodiniAsyncHTTPClient)
+[![jazzy](https://raw.githubusercontent.com/Apodini/ApodiniAsyncHTTPClient/gh-pages/badge.svg)](https://apodini.github.io/ApodiniAsyncHTTPClient/)
+[![Build and Test](https://github.com/Apodini/ApodiniAsyncHTTPClient/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/Apodini/ApodiniAsyncHTTPClient/actions/workflows/build-and-test.yml)
+
 ApodiniAsyncHTTPClient extends [Apodini](https://github.com/Apodini/Apodini) with support for the [AsyncHTTPClient](https://github.com/swift-server/async-http-client) to make HTTP requests in `Handlers` using the Environment: `@Environment(\.httpClient) var httpClient: HTTPClient`.  
 For more information about the [AsyncHTTPClient check out the documentation fround in the AsyncHTTPClient repository at https://github.com/swift-server/async-http-client](https://github.com/swift-server/async-http-client).
 
@@ -55,7 +60,7 @@ For more information about the [AsyncHTTPClient check out the documentation frou
 
 
 ## Contributing
-Contributions to this project are welcome. Please make sure to read the [contribution guidelines](https://github.com/Apodini/.github/blob/release/CONTRIBUTING.md) first.
+Contributions to this project are welcome. Please make sure to read the [contribution guidelines](https://github.com/Apodini/.github/blob/main/CONTRIBUTING.md) and the [contributor covenant code of conduct](https://github.com/Apodini/.github/blob/main/CODE_OF_CONDUCT.md) first
 
 ## License
 This project is licensed under the MIT License. See [License](https://github.com/Apodini/ApodiniAsyncHTTPClient/blob/develop/LICENSE) for more information.
