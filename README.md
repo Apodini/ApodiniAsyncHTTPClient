@@ -58,4 +58,4 @@ For more information about the [AsyncHTTPClient check out the documentation frou
 Contributions to this project are welcome. Please make sure to read the [contribution guidelines](https://github.com/Apodini/.github/blob/release/CONTRIBUTING.md) first.
 
 ## License
-This project is licensed under the MIT License. See [License](https://github.com/Apodini/ApodiniAsyncHTTPClient/blob/release/LICENSE) for more information.
+This project is licensed under the MIT License. See [License](https://github.com/Apodini/ApodiniAsyncHTTPClient/blob/develop/LICENSE) for more information.
