@@ -6,8 +6,8 @@
 // SPDX-License-Identifier: MIT
 //
 
-import XCTest
 @testable import ApodiniAsyncHTTPClient
+import XCTest
 
 
 final class ApodiniAsyncHTTPClientTests: XCTestCase {
