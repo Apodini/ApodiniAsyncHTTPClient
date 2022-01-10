@@ -14,14 +14,14 @@ import PackageDescription
 let package = Package(
     name: "ApodiniAsyncHTTPClient",
     platforms: [
-        .macOS(.v12)
+        .macOS(.v11)
     ],
     products: [
         .library(name: "ApodiniAsyncHTTPClient", targets: ["ApodiniAsyncHTTPClient"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Apodini/Apodini.git", .upToNextMinor(from: "0.6.1")),
-        .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.5.0")
+        .package(url: "https://github.com/Apodini/Apodini.git", .upToNextMinor(from: "0.7.0")),
+        .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.8.1")
     ],
     targets: [
         .target(
