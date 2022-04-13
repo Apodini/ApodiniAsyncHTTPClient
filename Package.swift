@@ -20,8 +20,8 @@ let package = Package(
         .library(name: "ApodiniAsyncHTTPClient", targets: ["ApodiniAsyncHTTPClient"])
     ],
     dependencies: [
-        .package(url: "https://github.com/Apodini/Apodini.git", .upToNextMinor(from: "0.7.0")),
-        .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.8.1")
+        .package(url: "https://github.com/Apodini/Apodini.git", .upToNextMinor(from: "0.9.0")),
+        .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.9.0")
     ],
     targets: [
         .target(
